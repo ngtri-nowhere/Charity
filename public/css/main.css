@@ -31,11 +31,13 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-    padding: 50px 120px;
+    padding: 40px 120px;
     z-index: 1000;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    opacity: 0.8;
+    background-color: white;
     box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
         0 6.5px 5.5px rgba(0, 0, 0, 0.05),
         0 13px 11px rgba(0, 0, 0, 0.1);
@@ -52,6 +54,7 @@ header .logo {
     font-weight: 700;
     font-size: 2em;
     text-decoration: none;
+    opacity: 1;
 }
 
 header .sticky .logo {
@@ -76,6 +79,7 @@ header .navigation li a {
     text-decoration: none;
     color: rgb(2, 0, 0);
     font-weight: 500;
+    opacity: 1;
 }
 
 header.sticky .navigation li a {
@@ -86,6 +90,11 @@ header .navigation li a:hover {
     color: #ff0157;
 }
 
+header .navigation .theLogo .logo span {
+    font-weight: 1000;
+}
+
+
 .myImage {
     position: relative;
     width: 100%;
@@ -93,7 +102,7 @@ header .navigation li a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: url("/images/bannerCharity.jpg");
+    background: url("/images/africaboy.jpg");
     background-size: cover;
 }
 
@@ -108,16 +117,429 @@ header .navigation li a:hover {
 }
 
 .myImage p {
-    color: rgb(201, 127, 127);
-    font-weight: bold;
+    color: rgb(255, 255, 255);
+    font-weight: 700;
+    padding-left: 50px;
+    padding-right: 50px;
 }
 
-.theSay {
-    background: url("/images/")
+.theySay {
+    background: url("/images/bannerAnimated.jpg");
+    background-size: cover;
 }
 
+.title {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.white .titleText,
+.white p {
+    color: #fff;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.theySay__content {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin-top: 40px;
+}
+
+.theySay__content .box {
+    width: 340px;
+    margin: 20px;
+    padding: 40px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.theySay__content .box .imgBx {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.theySay__content .box .imgBx img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.theySay__content .box .text {
+    text-align: center;
+}
+
+.testimonials .content .box .text p {
+    color: #666;
+    font-style: italic;
+}
+
+.testimonials .content .box .text h3 {
+    margin-top: 20px;
+    color: #111;
+    font-size: 1em;
+    color: #ff0157;
+    font-weight: 600;
+}
+
+.titleText {
+    color: #111;
+    font-size: 2em;
+    font-weight: 300;
+}
+
+.titleText span {
+    color: #ff0157;
+    font-weight: 700;
+    font-size: 1.5em;
+}
+
+.title-Banker {
+    z-index: 1;
+}
+
+.bankConnecting {
+    margin: 10px;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    display: grid;
+}
+
+
+.title-Banker {
+    padding-top: 50px;
+    text-align: center;
+    font-size: 40px;
+    color: rgb(15, 11, 11);
+    font-weight: 700;
+}
+
+.title-Banker span {
+    color: #f91a1a;
+}
+
+#videosBG {
+    border-radius: 30px;
+    margin-top: -1050px;
+    max-height: 250vh;
+    max-width: auto;
+    opacity: 0.4;
+}
+
+.box__Bank {
+    display: grid;
+    padding: 50px;
+    justify-content: center;
+    align-items: center;
+}
+
+.box__Bank .imageBank {
+    z-index: 1;
+    opacity: 0.7;
+    padding: 10px;
+    max-width: 150px;
+    max-height: 150px;
+    transition: 0.2s ease-in-out;
+}
+
+.box__Bank .imageBank:hover {
+    cursor: pointer;
+    opacity: 1;
+}
+
+.box__Bank .imageBank img {
+
+    width: 100%;
+    height: 100%;
+}
+
+.container__signIn {
+    display: grid;
+    position: relative;
+    height: 900px;
+    background-image: url("/images/homeless.jpg");
+    background-size: cover;
+}
+
+.container__signIn p {
+    padding-top: 150px;
+    padding-left: 30px;
+    padding-right: 30px;
+    font-size: 30px;
+    text-align: center;
+    font-weight: 500;
+    color: rgb(255, 255, 255);
+}
+
+.singIn__form {
+    text-align: center;
+}
+
+.singIn__form input {
+    margin: 20px;
+    padding: 10px;
+    font-size: 20px;
+    color: white;
+    border-radius: 50px;
+    background-color: transparent;
+}
+
+.singIn__form label {
+    font-size: 20px;
+    color: white;
+}
+
+.singIn__form .btn__signIn {
+    padding: 10px 30px;
+    margin-top: 20px;
+    font-size: 20px;
+    border-radius: 50px;
+    transition: 0.5s ease-in-out;
+    box-shadow:
+        0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+        0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+        0 12.5px 10px rgba(0, 0, 0, 0.06),
+        0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+        0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+        0 100px 80px rgba(0, 0, 0, 0.12);
+}
+
+.singIn__form .btn__signIn:hover {
+    letter-spacing: 5px;
+}
+
+.container__signIn a {
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+}
+
+/* Donation */
+.donation__container {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+#myVideoDonation {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+}
+
+.content__banner {
+    position: relative;
+    margin-top: 300px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5);
+    color: #f1f1f1;
+}
+
+.content__banner h1 {
+    font-size: 50px;
+}
+
+.content__banner p {
+    color: white;
+    padding: 10px;
+}
+
+.content__banner span {
+    color: #ff0157;
+}
+
+.donation__box {
+    padding: 15px;
+    display: flex;
+    border-bottom: 1px solid rgb(81, 81, 81);
+}
+
+.donation__box .donation__event {
+    border: 1px solid rgb(81, 81, 81);
+    max-height: 600px;
+    max-width: 400px;
+    display: grid;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    margin-left: 20px;
+}
+
+.donation__box .donation__event h4 {
+    color: #ff0157;
+}
+
+.donation__box .donation__event b {
+    color: #f1f1f1;
+}
+
+.donation__box .donation__event a {
+    text-decoration: none;
+    color: #ff0157;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 30px;
+    transition: 0.2s all ease-in-out;
+}
+
+.donation__box .donation__event a:hover {
+    letter-spacing: 3px;
+    color: #ff0134;
+
+}
+
+.donation__box .donation__event img {
+    height: 350px;
+    width: 400px;
+}
+
+.donation__chatBox {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.donation__chatting {
+    border: 1px solid rgb(146, 142, 142, 0.5);
+    max-width: 100%;
+    max-height: 800px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    padding: 20px;
+    margin: 20px;
+}
+
+.donation__chatting h4 {
+    padding: 10px;
+    color: #ff0134;
+}
+
+.donation__inputChat {
+    padding: 20px;
+    margin: 20px;
+}
+
+.donation__inputChat button {
+    padding: 10px 20px;
+    margin: 20px;
+}
+
+.donation__inputChat input {
+    font-size: 20px;
+    height: 40px;
+    width: 500px;
+}
+
+.donation__inputChat button {
+    border-radius: 20px;
+    transition: all 0.2s ease-in-out;
+}
+
+.donation__inputChat button:hover {
+    letter-spacing: 3px;
+}
+
+/* Donation */
+/* About Us */
+.aboutUs__container {
+    min-height: 1000px;
+    min-width: 1000px;
+    background-size: cover;
+    background-image: url(/images/aboutUs.jpg);
+}
+
+.aboutUs__box {
+    padding-top: 300px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.aboutUs__box h2 {
+    font-size: 50px;
+    color: rgb(255, 255, 255);
+}
+
+.aboutUs__box span {
+    color: #f91a1a;
+}
+
+.aboutUs__box p {
+    font-size: 35px;
+    font-weight: 800;
+    color: rgb(190, 187, 187);
+}
+
+/* About Us */
+
+/* Sign Up */
+.signUp__container {
+    background-image: url(/images/signUp.jpg);
+    background-size: cover;
+    min-height: 1000px;
+    min-width: 800px;
+}
+
+.signUp__container form {
+    padding: 300px;
+    display: grid;
+
+}
+
+.form__signUp {
+    display: grid;
+}
+
+.form__signUp label {
+    padding: 20px;
+    font-size: 30px;
+    font-weight: 700;
+    color: white;
+}
+
+.form__signUp input {
+    font-size: 20px;
+}
+
+.form__signUp button {
+    margin: 40px 0px;
+    padding: 10px;
+    max-width: 200px;
+    font-size: 20px;
+    border-radius: 20px;
+    transition: all 0.2s ease-in-out;
+}
+
+.form__signUp button:hover {
+    color: white;
+    letter-spacing: 3px;
+    background-color: rgb(58, 57, 57);
+}
+
+/* Sign Up */
 
 .footer {
     padding: 20px;
-    border-top: 1px solid rgb(152, 147, 147);
+    border-top: 1px solid rgb(224, 208, 208);
+    justify-content: center;
+    align-content: center;
 }

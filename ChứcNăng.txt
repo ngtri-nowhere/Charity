@@ -1,3 +1,10 @@
+◙ Data base từ mongoose.
+- có 3 Models (hiện tại):
+- user được chia làm 2 dạng user admin và user bth
+- event để chứa các sự kiện đã khởi tạo
+- chat để chứa tất cả đoạn chat
+
+
 ◙ Chức năng đăng ký người dùng mới
 ◙ Chức năng đăng nhập và Kiểm soát truy cập
 ◙ Quản lý đợt quyên góp (Entity 1)

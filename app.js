@@ -8,7 +8,6 @@ const MONGODB_URI = "mongodb+srv://admin__um:Grmk49g8G8XuFRR6@charity.csjw7.mong
 
 const charitRoutes = require("./routes/landing");
 
-
 const app = express();
 
 app.set("view engine", "ejs");
