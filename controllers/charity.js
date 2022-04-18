@@ -28,3 +28,21 @@ exports.donation = (req, res, next) => {
     })
 }
 //#endregion
+
+//#region get path="/createEvent"
+exports.createEvent = (req, res, next) => {
+    res.render("createEvent", {
+        pageTitle: "Create Event",
+        path: "/createEvent"
+    });
+}
+//#endregion
+
+//#region get path="/historyEvent"
+exports.historyEvent = (req, res, next) => {
+    res.render("historyEvent", {
+        pageTitle: "History Event",
+        path: "/historyEvent"
+    })
+}
+//#endregion

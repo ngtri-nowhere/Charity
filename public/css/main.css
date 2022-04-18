@@ -433,6 +433,10 @@ header .navigation .theLogo .logo span {
     color: #ff0134;
 }
 
+.donation__chatting p {
+    word-wrap: break-word;
+}
+
 .donation__inputChat {
     padding: 20px;
     margin: 20px;

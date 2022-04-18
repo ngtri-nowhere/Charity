@@ -4,11 +4,31 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
+const eventModel = require("./models/event");
+const userModel = require("./models/user");
+const chatboxModel = require("./models/chatting");
+
+const session = require("express-session");
+const MongoDBStore = require("connect-mongodb-session")(session);
+
+
+
 const MONGODB_URI = "mongodb+srv://admin__um:Grmk49g8G8XuFRR6@charity.csjw7.mongodb.net/myCharity?retryWrites=true&w=majority"
 
 const charitRoutes = require("./routes/landing");
 
 const app = express();
+
+//#region session
+// app.use(
+//     session({
+//         secret: "SERCET THINGS",
+//         resave: false,
+//         saveUninitialized: false,
+//         store: store
+//     })
+// );
+//#endregion
 
 app.set("view engine", "ejs");
 app.set("views", "views");

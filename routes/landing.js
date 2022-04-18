@@ -17,6 +17,11 @@ router.get("/aboutUs", charity.aboutUs);
 //get Donation
 router.get("/eventDonation", charity.donation);
 
+//get Create Event
+router.get("/createEvent", charity.createEvent);
+
+//get History Event
+router.get("/historyEvent", charity.historyEvent)
 
 //get auth
 router.get("/signIn", auth.signIn);

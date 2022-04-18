@@ -1,0 +1,47 @@
+.container__createEvent {
+    background-image: url("/images/childBook.jpg");
+    background-size: cover;
+}
+
+.form__createEvent {
+    padding-top: 400px;
+    padding-bottom: 400px;
+    display: grid;
+    margin-left: 200px;
+    margin-right: 200px;
+}
+
+.form__createEvent label {
+    color: white;
+    font-size: 30px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+.form__createEvent input {
+    font-size: 20px;
+    border-radius: 20px;
+}
+
+.form__createEvent button {
+    margin: 50px 300px;
+    border-radius: 30px;
+    font-size: 30px;
+    transition: all 0.2s ease-in-out;
+}
+
+.form__createEvent button:hover {
+    background-color: rgb(88, 86, 86);
+    color: white;
+}
+
+.form__createEvent h2 {
+    text-align: center;
+    font-size: 100px;
+    color: white;
+    padding-bottom: 200px;
+}
+
+.form__createEvent span {
+    color: rgb(252, 8, 49);
+}

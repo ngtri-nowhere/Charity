@@ -28,6 +28,14 @@ const eventDonation = new Schema({
         ref: "User",
         required: true,
     },
+    timeAction: {
+        type: String,
+        required: true,
+    },
+    teamAction: {
+        type: String,
+        required: true,
+    },
     isAccept: {
         type: Boolean,
         required: true
