@@ -25,7 +25,7 @@ p {
     background: url("/images/bannerCharity.jpg");
     background-size: cover;
 } */
-
+/* Header*/
 header {
     position: fixed;
     top: 0;
@@ -82,6 +82,13 @@ header .navigation li a {
     opacity: 1;
 }
 
+header .navigation li a:active,
+header .navigation li a.active {
+    font-weight: 800;
+    opacity: 1;
+    font-size: 1.5rem;
+}
+
 header.sticky .navigation li a {
     color: rgb(240, 237, 237);
 }
@@ -94,6 +101,7 @@ header .navigation .theLogo .logo span {
     font-weight: 1000;
 }
 
+/* Header*/
 
 .myImage {
     position: relative;

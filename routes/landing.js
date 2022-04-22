@@ -1,4 +1,7 @@
 const express = require('express');
+const { check, body } = require("express-validator/check");
+
+const isAuth = require("../middleware/is-auth");
 
 const router = express.Router();
 
@@ -23,8 +26,25 @@ router.get("/createEvent", charity.createEvent);
 //get History Event
 router.get("/historyEvent", charity.historyEvent)
 
-//get auth
+//get auth signIn
 router.get("/signIn", auth.signIn);
+
+//post auth signIn
+router.post("/signIn", [
+    body('email')
+        .isEmail()
+        .withMessage("Enter a correct email address. ")
+        .normalizeEmail(),
+    body('password', "Password has to be correct")
+        .isLength({ min: 5 })
+        .isAlphanumeric()
+        .trim()
+], auth.postSignIn)
+
+//post auth signOut
+router.post('/signOut', auth.signOut);
+
+//get auth signUp
 router.get("/signUp", auth.signUp);
 
 module.exports = router;

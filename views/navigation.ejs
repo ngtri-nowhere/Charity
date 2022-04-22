@@ -4,20 +4,25 @@
     </div>
     <ul class="navigation">
         <li>
-            <a href="/eventDonation" class="donatTool">Donation Event</a>
+            <a href="/eventDonation" class="<%= path === '/eventDonation'  ? 'active' : '' %>">Donation Event</a>
         </li>
         <li>
-            <a href="/aboutUs" class="donatTool">About Us</a>
+            <a href="/aboutUs" class="<%= path === '/aboutUs' ? 'active' : '' %>">About Us</a>
+        </li>
+        <li>
+            <a href="/createEvent" class="<%= path === '/createEvent' ? 'active' : '' %>">Create Event</a>
+        </li>
+        <li>
+            <a href="/historyEvent" class="<%= path === '/historyEvent' ? 'active' : '' %>">History Event</a>
         </li>
         <li>
             <a href="/signIn" class="donatTool">Sign In</a>
         </li>
+        <!-- form action method post -->
         <li>
-            <a href="/createEvent" class="donatTool">Create Event</a>
+            <a href="/signOut" class="donatTool">Sign Out</a>
         </li>
-        <li>
-            <a href="/historyEvent" class="donatTool">History Event</a>
-        </li>
+        <!-- form action method post -->
     </ul>
 
 </header>

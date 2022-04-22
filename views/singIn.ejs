@@ -8,16 +8,24 @@
                     contribute more to us as humans.
                     (Đăng nhập với tư cách thành viên bạn có thể tạo sự kiện để quyên góp, đồng thời bạn
                     có thể bàn luận chia sẽ quan điểm và đóng góp nhiều hơn cho con người chúng ta.)</p>
-                <form class="singIn__form" method="POST">
-                    <div>
-                        <label for="emailName">Email-</label>
-                        <input class="emailName" type="text" placeholder="Email">
-                        <label for="password">Password-</label>
-                        <input class="password" type="password" placeholder="Password" minlength="5" maxlength="20">
+                <% if(errorMessage) { %>
+                    <div class="user-message user-message-error">
+                        <%= errorMessage %>
                     </div>
-                    <button type="submit" class="btn__signIn">Go in...</button>
-                </form>
-                <a href="/signUp">Don't have account yet? Sign up now.</a>
+                    <%} %>
+                        <form class="singIn__form" method="POST">
+                            <div>
+                                <label for="email">Email-</label>
+                                <input class="<%= validationErrors.find(e => e.param === 'email') ? 'invalid' : '' %>"
+                                    type="text" placeholder="Email" name="email" value="<%= oldInput.email %>">
+                                <label for="password">Password-</label>
+                                <input class="<%= validationErrors.find(e => e.param === 'password') ? 'invalid' :'' %>"
+                                    value="<%= oldInput.password %>" name="password" type="password"
+                                    placeholder="Password" minlength="5" maxlength="20">
+                            </div>
+                            <button type="submit" class="btn__signIn">Go in...</button>
+                        </form>
+                        <a href="/signUp">Don't have account yet? Sign up now.</a>
             </div>
 
             <%- include('./end.ejs') %>
