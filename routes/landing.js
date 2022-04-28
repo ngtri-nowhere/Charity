@@ -17,11 +17,18 @@ router.get("/", charity.main);
 //get About Us
 router.get("/aboutUs", charity.aboutUs);
 
+
 //get Donation
 router.get("/eventDonation", charity.donation);
+router.get("/detailDonation/:eventId", charity.detailEvent);
+
+
 
 //get Create Event
 router.get("/createEvent", charity.createEvent);
+//post Create Event
+router.post("/createEvent", charity.postCreateEvent);
+
 
 //get History Event
 router.get("/historyEvent", charity.historyEvent)

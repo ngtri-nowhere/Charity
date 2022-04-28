@@ -4,45 +4,174 @@ const myChatting = require("../models/chatting");
 
 //#region show path="/"
 exports.main = (req, res, next) => {
-    res.render("main", {
-        pageTitle: "Philanthropic",
-        path: "/"
-    });
+    /* checkAdmin region */
+    console.log(req.session)
+    //nếu chưa có session user, nếu chưa đăng nhập
+    if (!req.session.user) {
+        res.render("main", {
+            pageTitle: "Philanthropic",
+            path: "/",
+            isAdmin: false
+        });
+    } else {
+        const userId = req.session.user._id
+        let checkAdmin
+        myUser.findById(userId).then(user => {
+            checkAdmin = user.isAdmin
+            res.render("main", {
+                pageTitle: "Philanthropic",
+                path: "/",
+                isAdmin: checkAdmin
+            });
+            // checkAdmin với user để hiện thị khung create Event
+        }).catch(err => {
+            console.log(err)
+        })
+    }
+
+    /* checkAdmin region */
 }
 //#endregion
 
 //#region get path="/aboutUs"
 exports.aboutUs = (req, res, next) => {
-    res.render("aboutUs", {
-        pageTitle: "About Us",
-        path: "/aboutUs"
-    })
+    if (!req.session.user) {
+        res.render("aboutUs", {
+            pageTitle: "About Us",
+            path: "/aboutUs",
+            isAdmin: false
+        });
+    } else {
+        const userId = req.session.user._id
+        let checkAdmin
+        myUser.findById(userId).then(user => {
+            checkAdmin = user.isAdmin
+            res.render("aboutUs", {
+                pageTitle: "About Us",
+                path: "/aboutUs",
+                isAdmin: checkAdmin
+            });
+        }).catch(err => {
+            console.log(err)
+        })
+    }
 }
 //#endregion
 
 //#region get path="/donation"
 exports.donation = (req, res, next) => {
-    res.render("donation", {
-        pageTitle: "Donation",
-        path: "/eventDonation"
-    })
+    if (!req.session.user) {
+        res.render("donation", {
+            pageTitle: "Donation",
+            path: "/eventDonation",
+            isAdmin: false
+        });
+    } else {
+        const userId = req.session.user._id
+        let checkAdmin
+
+        myUser.findById(userId).then(user => {
+            checkAdmin = user.isAdmin
+            myEvent.find().then(event => {
+                console.log(event)
+                res.render("donation", {
+                    pageTitle: "Donation",
+                    path: "/eventDonation",
+                    isAdmin: checkAdmin,
+                    prods: event,
+                });
+            })
+        }).catch(err => {
+            console.log(err);
+        })
+    }
 }
 //#endregion
 
 //#region get path="/createEvent"
 exports.createEvent = (req, res, next) => {
-    res.render("createEvent", {
-        pageTitle: "Create Event",
-        path: "/createEvent"
-    });
+    const userId = req.session.user._id
+    let checkAdmin
+    myUser.findById(userId).then(user => {
+        checkAdmin = user.isAdmin
+        res.render("createEvent", {
+            pageTitle: "Create Event",
+            path: "/createEvent",
+            isAdmin: checkAdmin,
+            prods: user,
+        });
+    })
+}
+//#endregion
+
+//#region post path="/createEvent" 
+exports.postCreateEvent = (req, res, next) => {
+    const nameEvent = req.body.nameEvent //Name Event
+    const imageEvent = req.body.imageEvent //Image Event
+    const locationEvent = req.body.locationEvent //Location Event
+    const desEvent = req.body.descriptionEvent  // Description Event
+    const moneyEvent = req.body.totalMoney // Total Moeny
+    const timeEvent = req.body.timeAction //  Time Action
+    const teamEvent = req.body.teamAction // Team Event
+
+    const empId = req.session.user._id
+    const newEvent = new myEvent({
+        nameEvent: nameEvent,
+        imageUrl: imageEvent,
+        locationEvent: locationEvent,
+        description: desEvent,
+        totalMoney: moneyEvent,
+        createrEvent: empId,
+        timeAction: timeEvent,
+        teamAction: teamEvent,
+        isAccept: true
+    })
+    res.redirect("/eventDonation")
+    return newEvent.save();
+}
+//#endregion
+
+//#region get detail event
+exports.detailEvent = (req, res, next) => {
+    const empId = req.session.user._id
+    const eventId = req.params.eventId
+    let checkAdmin
+    myEvent.findById(eventId).then(event => {
+        console.log(event)
+        myUser.findById(empId).then(user => {
+            checkAdmin = user.isAdmin
+            res.render("detailEvent", {
+                pageTitle: "Detail Event and Donation",
+                path: "/detailDonation",
+                isAdmin: checkAdmin,
+                prods: event
+            })
+        })
+    })
+
+
 }
 //#endregion
 
 //#region get path="/historyEvent"
 exports.historyEvent = (req, res, next) => {
-    res.render("historyEvent", {
-        pageTitle: "History Event",
-        path: "/historyEvent"
-    })
+    if (!req.session.user) {
+        res.render("historyEvent", {
+            pageTitle: "History Event",
+            path: "/historyEvent",
+            isAdmin: false
+        });
+    } else {
+        const userId = req.session.user._id
+        let checkAdmin
+        myUser.findById(userId).then(user => {
+            checkAdmin = user.isAdmin
+            res.render("historyEvent", {
+                pageTitle: "History Event",
+                path: "/historyEvent",
+                isAdmin: checkAdmin
+            });
+        })
+    }
 }
 //#endregion

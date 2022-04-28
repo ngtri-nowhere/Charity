@@ -70,6 +70,7 @@ app.use(
 //#endregion
 
 app.use(flash());
+
 // #region session isLogin
 app.use((req, res, next) => {
     res.locals.isAuthenticated = req.session.isLoggedIn;
@@ -79,6 +80,7 @@ app.use((req, res, next) => {
     next();
 })
 // #endregion
+
 
 //Routes
 app.use(charitRoutes)

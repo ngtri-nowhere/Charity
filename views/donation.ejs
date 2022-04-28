@@ -16,24 +16,27 @@
                             vehicles. A donation may satisfy medical needs such as blood or organs for transplant.</p>
                         <h2>List <span>.</span>Event Donation</h2>
                         <div class="donation__box">
-                            <div class="donation__event">
-                                <img src="/images/foodChairity.jpg">
-                                <h4>Name Event: <b>Blood mercy</b> </h4>
-                                <h4>Location: <b>Tay Ninh</b></h4>
-                                <h4>Description:<b>Cơ hội của HIV và các bệnh lây lang qua đường máu</b></h4>
-                                <h4>Money We Need:<b>20,000$</b> </h4>
-                                <h4>Creater Event:<b>Toi</b> </h4>
-                                <a href="#">Donation</a>
-                            </div>
-                            <div class="donation__event">
-                                <img src="/images/foodChairity.jpg">
-                                <h4>Name Event: <b>Blood mercy</b> </h4>
-                                <h4>Location: <b>Tay Ninh</b></h4>
-                                <h4>Description:<b>Cơ hội của HIV và các bệnh lây lang qua đường máu</b></h4>
-                                <h4>Money We Need:<b>20,000$</b> </h4>
-                                <h4>Creater Event:<b>Toi</b> </h4>
-                                <a href="#">Donation</a>
-                            </div>
+                            <% for(let event of prods) { %>
+                                <div class="donation__event">
+                                    <img src="<%= event.imageUrl %>">
+                                    <h4>Name Event: <b>
+                                            <%=event.nameEvent %>
+                                        </b> </h4>
+                                    <h4>Location: <b>
+                                            <%= event.locationEvent %>
+                                        </b></h4>
+                                    <h4>Description:<b>
+                                            <%= event.description %>
+                                        </b></h4>
+                                    <h4>Money We Need:<b>
+                                            <%= event.totalMoney%>
+                                        </b> $</h4>
+                                    <h4>Creater Event:<b>
+                                            <%= event.createrEvent %>
+                                        </b> </h4>
+                                    <a href="/detailDonation/<%= event._id %>">Donation</a>
+                                </div>
+                                <% } %>
                         </div>
                         <div class="donation__chatBox">
                             <h2>Let talking with philanthropists like <span>Y</span>ou</h2>

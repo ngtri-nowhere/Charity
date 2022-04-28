@@ -17,6 +17,7 @@ exports.signIn = (req, res, next) => {
         pageTitle: "Sign In",
         path: "/signIn",
         errorMessage: message,
+        isAdmin: false,
         oldInput: {
             email: "",
             password: "",
@@ -80,7 +81,6 @@ exports.signOut = (req, res, next) => {
     })
 }
 //#endregion
-
 
 //#region get path="/signUp" 
 exports.signUp = (req, res, next) => {

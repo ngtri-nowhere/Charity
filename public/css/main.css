@@ -101,6 +101,18 @@ header .navigation .theLogo .logo span {
     font-weight: 1000;
 }
 
+header .navigation li button {
+    border: none;
+    background-color: transparent;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+header .navigation li button:hover {
+    color: #ff0157;
+    cursor: pointer;
+}
+
 /* Header*/
 
 .myImage {
@@ -383,7 +395,7 @@ header .navigation .theLogo .logo span {
 
 .donation__box .donation__event {
     border: 1px solid rgb(81, 81, 81);
-    max-height: 600px;
+    max-height: auto;
     max-width: 400px;
     display: grid;
     border-radius: 20px;
@@ -407,6 +419,8 @@ header .navigation .theLogo .logo span {
     font-weight: 700;
     font-size: 30px;
     transition: 0.2s all ease-in-out;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
 }
 
 .donation__box .donation__event a:hover {
@@ -549,9 +563,71 @@ header .navigation .theLogo .logo span {
 
 /* Sign Up */
 
+/* Detail Event */
+.detailDonation__container {
+    background-image: url("/images/background-edit.jpg");
+    background-size: cover;
+}
+
+.detailDonation__box {
+    padding-top: 300px;
+    padding-bottom: 500px;
+}
+
+.detailDonation__box .detailDonation__content {
+    text-align: center;
+    margin-left: 50px;
+    margin-right: 50px;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+}
+
+.detailDonation__box .detailDonation__content h3 {
+    font-size: 30px;
+    color: white;
+}
+
+.detailDonation__box .detailDonation__content h3 p {
+    color: rgb(255, 255, 255);
+    font-weight: 700;
+}
+
+.detailDonation__box .detailDonation__content h3 span {
+    color: #ff0134;
+}
+
+.detailDonation__box .detailDonation__content img {
+    max-width: auto;
+    max-height: 500px;
+    border-radius: 20px;
+}
+
+.detailDonation__box .detailDonation__content button {
+    padding: 10px 20px;
+    margin: 20px 20px;
+    font-size: 20px;
+    border-radius: 20px;
+}
+
+.detailDonation__tutorial {
+    text-align: center;
+    font-size: 25px;
+    color: white;
+    padding: 100px 20px;
+}
+
+
+
+
+/* Detail Event */
+
+/* footer */
 .footer {
     padding: 20px;
     border-top: 1px solid rgb(224, 208, 208);
     justify-content: center;
     align-content: center;
 }
+
+/* footer */
