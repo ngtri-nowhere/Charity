@@ -12,6 +12,7 @@
                                 <%= prods.nameEvent %>
                             </p>
                         </h3>
+                        <h3>Image Event: </h3>
                         <image src="<%= prods.imageUrl %>" />
                         <h3>Location Event :<p>
                                 <%= prods.locationEvent %>
@@ -37,9 +38,11 @@
                                 <%= prods.teamAction %>
                             </p>
                         </h3>
-                        <% if(isAdmin) { %>
-                            <button type="submit">Update</button>
-                            <%} %>
+                        <div class="update__button">
+                            <% if(isAdmin) { %>
+                                <a href="/updateDonation/<%= prods._id %>">Update</a>
+                                <%} %>
+                        </div>
                     </div>
 
                     <div class="detailDonation__tutorial">

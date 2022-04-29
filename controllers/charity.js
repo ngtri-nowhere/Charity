@@ -148,8 +148,57 @@ exports.detailEvent = (req, res, next) => {
             })
         })
     })
+}
+//#endregion
+
+//#region get update Event
+exports.updateEvent = (req, res, next) => {
+    const eventId = req.params.eventId
+    const userId = req.session.user._id
 
 
+    let checkAdmin
+    console.log(userId.isAdmin)
+    myEvent.findById(eventId).then(event => {
+        console.log(event)
+        res.render("updateEvent", {
+            pageTitle: "Update Event",
+            path: "/updateDonation",
+            prods: event,
+            isAdmin: userId.isAdmin
+        });
+    }).catch(err => {
+        console.log(err)
+    })
+}
+//#endregion    
+
+//#region post update event
+exports.postUpEvent = (req, res, next) => {
+    const eventId = req.body.eventId
+
+    const nameEvent = req.body.nameEvent
+    const imageUrl = req.body.imageUrl
+    const locationEvent = req.body.locationEvent
+    const description = req.body.description
+    const totalMoney = req.body.totalMoney
+    const timeAction = req.body.timeAction
+    const teamAction = req.body.teamAction
+
+    myEvent.findById(eventId).then(event => {
+        event.nameEvent = nameEvent
+        event.imageUrl = imageUrl
+        event.locationEvent = locationEvent
+        event.description = description
+        event.totalMoney = totalMoney
+        event.timeAction = timeAction
+        event.teamAction = teamAction
+        return event.save().then(() => {
+            res.redirect("/eventDonation")
+        })
+    }).catch(err => {
+        console.log(err)
+    })
 }
 //#endregion
 
