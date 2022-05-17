@@ -29,12 +29,17 @@ router.get("/createEvent", charity.createEvent);
 //post Create Event
 router.post("/createEvent", charity.postCreateEvent);
 
+//thanks to donation people
+//get 
+router.get("/thanksto", charity.thanksTo);
 
 //get History Event
 router.get("/historyEvent", charity.historyEvent)
 
 //get auth signIn
 router.get("/signIn", auth.signIn);
+
+
 
 //post auth signIn
 router.post("/signIn", [

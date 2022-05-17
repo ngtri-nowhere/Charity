@@ -56,7 +56,8 @@ exports.postSignIn = (req, res, next) => {
                     email: email,
                     password: password
                 },
-                validationErrors: []
+                validationErrors: [],
+                isAdmin: false,
             });
         }
         req.session.isLoggedIn = true;
@@ -91,3 +92,7 @@ exports.signUp = (req, res, next) => {
 }
 //#endregion
 
+//#region paypal
+
+
+//#endregion

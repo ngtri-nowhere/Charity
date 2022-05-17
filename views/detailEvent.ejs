@@ -6,7 +6,6 @@
         <%- include('./navigation.ejs') %>
             <div class="detailDonation__container">
                 <div class="detailDonation__box">
-
                     <div class="detailDonation__content">
                         <h3>Name Event : <p>
                                 <%= prods.nameEvent %>
@@ -38,13 +37,23 @@
                                 <%= prods.teamAction %>
                             </p>
                         </h3>
+                        <div class="value_donation">
+                            <h2>Số tiền bạn muốn Donation </h2>
+                            <input type="number" name="valueDonation" min="5" /><span>$</span>
+                            <p>Minimum 5$ of donation</p>
+                        </div>
                         <div class="update__button">
                             <% if(isAdmin) { %>
                                 <a href="/updateDonation/<%= prods._id %>">Update</a>
                                 <%} %>
                         </div>
+                        <div class="update__button">
+                            <form action="/pay" method="POST">
+                                <input type="hidden" name="eventId" value="<%= eventId %>">
+                                <input type="submit" value="DONATION">
+                            </form>
+                        </div>
                     </div>
-
                     <div class="detailDonation__tutorial">
                         <h3>Donation at this account paypal: ©</h3>
                         <h3>Your donation should have a name same with name account your create</h3>

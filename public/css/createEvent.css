@@ -45,3 +45,75 @@
 .form__createEvent span {
     color: rgb(252, 8, 49);
 }
+
+/* thanks to Donation */
+.container_thanks {
+    background-image: url("/images/toYourDoor.jpg");
+    background-size: cover;
+}
+
+.thanksTo {
+    padding: 200px 40px 50px 40px;
+    text-align: center;
+}
+
+h1 {
+    margin: 50px 50px;
+    font-size: 60px;
+    color: rgb(238, 238, 238);
+}
+
+h1 span {
+    color: rgb(255, 0, 8);
+}
+
+h3 {
+    font-size: 30px;
+    color: white;
+}
+
+.thanksTo p {
+    font-size: 20px;
+    color: rgb(255, 1, 1);
+    font-weight: 800;
+    padding-top: 20px;
+}
+
+/*-end-Donation--*/
+
+/*--detailEvent-*/
+.value_donation input {
+    font-size: 30px;
+    font-weight: 700;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.value_donation input::-webkit-outer-spin-button,
+.value_donation input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.value_donation span {
+    font-size: 40px;
+    color: white;
+    font-weight: 700;
+    padding-left: 10px
+}
+
+.value_donation p {
+    color: white;
+    font-weight: 500;
+}
+
+.value_donation h2 {
+    padding-top: 20px;
+    color: red;
+}
+
+
+
+/* -- end-detialEvent-*/

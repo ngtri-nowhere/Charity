@@ -144,7 +144,8 @@ exports.detailEvent = (req, res, next) => {
                 pageTitle: "Detail Event and Donation",
                 path: "/detailDonation",
                 isAdmin: checkAdmin,
-                prods: event
+                prods: event,
+                eventId: eventId,
             })
         })
     })
@@ -223,4 +224,22 @@ exports.historyEvent = (req, res, next) => {
         })
     }
 }
+
 //#endregion
+
+//#region get path="/thanksto"
+exports.thanksTo = (req, res, next) => {
+    const userId = req.session.user._id;
+    let checkAdmin
+    myUser.findById(userId).then(user => {
+        checkAdmin = user.isAdmin;
+        res.render("thankstoDonation", {
+            pageTitle: "Thanks to your help",
+            path: "/thanksto",
+            isAdmin: checkAdmin
+        });
+    })
+}
+//#endregion
+
+
