@@ -1,6 +1,7 @@
 const myUser = require("../models/user");
 const myEvent = require("../models/event");
 const myChatting = require("../models/chatting");
+const historyEvent = require("../models/historyDonation");
 
 //#region show path="/"
 exports.main = (req, res, next) => {
@@ -60,16 +61,22 @@ exports.aboutUs = (req, res, next) => {
 
 //#region get path="/donation"
 exports.donation = (req, res, next) => {
+    let signIn;
     if (!req.session.user) {
-        res.render("donation", {
-            pageTitle: "Donation",
-            path: "/eventDonation",
-            isAdmin: false
-        });
+        signIn = false;
+        myEvent.find().then(event => {
+            res.render("donation", {
+                pageTitle: "Donation",
+                path: "/eventDonation",
+                prods: event,
+                isAdmin: false,
+                user: signIn
+            });
+        })
     } else {
         const userId = req.session.user._id
         let checkAdmin
-
+        signIn = true;
         myUser.findById(userId).then(user => {
             checkAdmin = user.isAdmin
             myEvent.find().then(event => {
@@ -79,6 +86,7 @@ exports.donation = (req, res, next) => {
                     path: "/eventDonation",
                     isAdmin: checkAdmin,
                     prods: event,
+                    user: signIn
                 });
             })
         }).catch(err => {
@@ -206,22 +214,34 @@ exports.postUpEvent = (req, res, next) => {
 //#region get path="/historyEvent"
 exports.historyEvent = (req, res, next) => {
     if (!req.session.user) {
-        res.render("historyEvent", {
-            pageTitle: "History Event",
-            path: "/historyEvent",
-            isAdmin: false
+        historyEvent.find().then(user => {
+            res.render("historyEvent", {
+                pageTitle: "History Event",
+                path: "/historyEvent",
+                isAdmin: false
+            });
+        }).catch(err => {
+            console.log(err);
         });
     } else {
         const userId = req.session.user._id
         let checkAdmin
         myUser.findById(userId).then(user => {
             checkAdmin = user.isAdmin
-            res.render("historyEvent", {
-                pageTitle: "History Event",
-                path: "/historyEvent",
-                isAdmin: checkAdmin
-            });
-        })
+            historyEvent.find().then(history => {
+                console.log(history);
+                res.render("historyEvent", {
+                    pageTitle: "History Event",
+                    path: "/historyEvent",
+                    isAdmin: checkAdmin,
+                    prods: history,
+                });
+            }).catch(err => {
+                console.log(err);
+            })
+        }).catch(err => {
+            console.log(err);
+        });
     }
 }
 

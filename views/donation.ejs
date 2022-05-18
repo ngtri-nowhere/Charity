@@ -35,7 +35,9 @@
                                     <h4>Creater Event:<b>
                                             <%= event.createrEvent %>
                                         </b> </h4>
-                                    <a href="/detailDonation/<%= event._id %>">Donation</a>
+                                    <% if(user){ %>
+                                        <a href="/detailDonation/<%= event._id %>">Donation</a>
+                                        <% } %>
                                 </div>
                                 <% } %>
                         </div>
@@ -48,13 +50,15 @@
                                 <p>Yea, i donat 2million $ for this </p>
                             </div>
 
-                            <div class="donation__inputChat">
-                                <form method="POST">
-                                    <label for="donation__input">Have any comments?</label>
-                                    <input type="text" name="donation__input" id="donation__input">
-                                </form>
-                                <button type="submit" name="donation__input">Send</button>
-                            </div>
+                            <% if(user){ %>
+                                <div class="donation__inputChat">
+                                    <form method="POST">
+                                        <label for="donation__input">Have any comments?</label>
+                                        <input type="text" name="donation__input" id="donation__input">
+                                    </form>
+                                    <button type="submit" name="donation__input">Send</button>
+                                </div>
+                                <% } %>
                         </div>
                     </div>
                 </div>

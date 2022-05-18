@@ -91,13 +91,23 @@ paypal.configure({
     'client_secret': 'EJV-SB0vvZISpJikIOhcBcE0KZVdY5xYJJ0BCap6KGDgjIbD7otGjBRV6OvkzuseQQTMw3jqN_nSPbRe'
 });
 
+let totalMoney;
 
-app.post('/pay', (req, res) => {
-    // tạo những tham số ngoài này được lấy ra bỡi thằng Donation Event 
+app.post('/pay', async (req, res) => {
+    // tạo những tham số ngoài này được lấy ra bỡi thằng Donation Event
+    var eventName
     const myEventId = req.body.eventId;
-    console.log(myEventId);
-    const userValueDonat = req.body.valueDonation;
-    console.log(userValueDonat);
+
+    await eventModel.findOne({ _id: myEventId }).then(event => {
+        eventName = event.nameEvent;
+    }).catch(err => {
+        console.log(err);
+    });
+
+    console.log(myEventId + "req.body.eventId");
+    const userValueDonat = req.body.moneyDonation;
+    totalMoney = userValueDonat;
+    console.log(userValueDonat + "req.body.moneyDonation");
 
     const create_payment_json = {
         "intent": "sale",
@@ -111,16 +121,16 @@ app.post('/pay', (req, res) => {
         "transactions": [{
             "item_list": {
                 "items": [{
-                    "name": myEventId,
+                    "name": eventName,
                     "sku": "001",
-                    "price": "25.00",
+                    "price": userValueDonat,
                     "currency": "USD",
                     "quantity": 1
                 }]
             },
             "amount": {
                 "currency": "USD",
-                "total": "25.00"
+                "total": userValueDonat
             },
             "description": "Donation thing make you feel more humaniti"
         }]
@@ -146,12 +156,14 @@ app.get('/success', (req, res) => {
     const payerId = req.query.PayerID;
     const paymentId = req.query.paymentId;
 
+
+
     const execute_payment_json = {
         "payer_id": payerId,
         "transactions": [{
             "amount": {
                 "currency": "USD",
-                "total": "25.00"
+                "total": totalMoney
             }
         }]
     };
@@ -160,22 +172,30 @@ app.get('/success', (req, res) => {
             console.log(error.response);
             throw error;
         } else {
-            console.log(payment.payer.payer_info.email);
-            const idEvent = JSON.stringify(payment.transactions[0].item_list.items.name);
-            const userEmail = JSON.stringify(payment.payer.payer_info.email);
-            const userFirstName = JSON.stringify(payment.payer.payer_info.first_name);
-            const userLastName = JSON.stringify(payment.payer.payer_info.last_name);
-            const userTotal = JSON.stringify(payment.transactions[0].amount.total);
+            // console.log(payment.payer.payer_info.email);
+            console.log(payment.transactions[0].item_list.items[0]);
+            // console.log(payment);
 
-            var newUser = new historyDonation({
+            const idEvent = payment.transactions[0].item_list.items[0].name;
+            console.log(idEvent + "idEvent");
+            const userEmail = payment.payer.payer_info.email;
+            console.log(userEmail + "userEmail");
+            const userFirstName = payment.payer.payer_info.first_name;
+            console.log(userFirstName + "firstName");
+            const userLastName = payment.payer.payer_info.last_name;
+            console.log(userLastName + "lastName")
+            const userTotal = payment.transactions[0].amount.total;
+            console.log(userTotal + "toTal")
+
+            const newUser = new historyDonation({
                 email: userEmail,
                 first_name: userFirstName,
                 last_name: userLastName,
                 total: userTotal,
                 idEvent: idEvent
             });
+            newUser.save();
             res.redirect("/thanksto");
-            return newUser.save();
         }
     });
 });

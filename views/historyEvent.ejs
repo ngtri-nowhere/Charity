@@ -10,22 +10,23 @@
                     See all activities of event
                 </p>
                 <div class="container__listDetail">
-                    <div class="container__boxDetail">
-                        <h3>Name Event: </h3>
-                        <p>Blood Mecry</p>
-                        <h3>Total Money: </h3>
-                        <p>2000<span>$</span></p>
-                        <h3>From :</h3>
-                        <p>- Bà Hằng</p>
-                    </div>
-                    <div class="container__boxDetail">
-                        <h3>Name Event: </h3>
-                        <p>Blood Mecry</p>
-                        <h3>Total Money: </h3>
-                        <p>2000<span>$</span></p>
-                        <h3>From :</h3>
-                        <p>- Bà Hằng</p>
-                    </div>
+                    <% for(let histo of prods) { %>
+                        <div class="container__boxDetail">
+                            <h3>IdEvent: </h3>
+                            <p>
+                                <%= histo.idEvent %>
+                            </p>
+                            <h3>Total Money: </h3>
+                            <p>
+                                <%= histo.total %><span>$</span>
+                            </p>
+                            <h3>From :</h3>
+                            <p>
+                                <%= histo.first_name %>
+                                <%= histo.last_name %>
+                            </p>
+                        </div>
+                        <% } %>
                 </div>
                 <div class="container__galary">
                     <h3>Here for Galary we do </h3>
