@@ -17,10 +17,11 @@
                             <div>
                                 <label for="email">Email-</label>
                                 <input class="<%= validationErrors.find(e => e.param === 'email') ? 'invalid' : '' %>"
-                                    type="text" placeholder="Email" name="email" value="<%= oldInput.email %>">
+                                    type="text" placeholder="Email" name="email" value="<%= oldInput.email %>"
+                                    required="true">
                                 <label for="password">Password-</label>
                                 <input class="<%= validationErrors.find(e => e.param === 'password') ? 'invalid' :'' %>"
-                                    value="<%= oldInput.password %>" name="password" type="password"
+                                    value="<%= oldInput.password %>" name="password" type="password" required="false"
                                     placeholder="Password" minlength="5" maxlength="20">
                             </div>
                             <button type="submit" class="btn__signIn">Go in...</button>

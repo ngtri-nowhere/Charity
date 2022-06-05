@@ -32,21 +32,31 @@ exports.postSignIn = (req, res, next) => {
     const email = req.body.email
     const password = req.body.password
 
+    console.log(password.length);
+
+    let message = req.flash('error');
+    if (message.length > 0) {
+        message = message[0]
+    } else {
+        message = null;
+    }
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
         return res.status(422).render('singIn', {
             pageTitle: "Sign In",
             path: "/signIn",
-            errorMessaage: message,
+            errorMessage: message,
             oldInput: {
                 email: email,
                 password: password,
             },
-            validationErrors: errors.array()
+            validationErrors: errors.array(),
+            isAdmin: false,
         });
     }
+    // #region điều kiện login
     myUser.findOne({ email: email, password: password }).then(user => {
-        console.log(user)
+        //nếu sai mật khẩu hoặc là tên đăng nhập
         if (!user) {
             return res.status(422).render("singIn", {
                 path: "/signIn",
@@ -60,6 +70,7 @@ exports.postSignIn = (req, res, next) => {
                 isAdmin: false,
             });
         }
+        //#endregion kết thúc điều kiện
         req.session.isLoggedIn = true;
         req.session.user = user;
         return req.session.save(err => {

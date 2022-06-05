@@ -49,11 +49,14 @@
     overflow-y: scroll;
     display: flex;
     flex-direction: column-reverse;
+    justify-content: center;
 }
 
 .container__boxDetail {
     display: flex;
     padding: 20px;
+    justify-content: space-between;
+    flex-direction: grid;
 }
 
 .container__boxDetail h3 {
