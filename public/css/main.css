@@ -289,11 +289,12 @@ header .navigation li button:hover {
     height: 100%;
 }
 
+/* Sign In */
 .container__signIn {
     display: grid;
     position: relative;
     height: 900px;
-    background-image: url("/images/homeless.jpg");
+    background-image: url("/images/SignIn.jpg");
     background-size: cover;
 }
 
@@ -350,6 +351,8 @@ header .navigation li button:hover {
     text-decoration: none;
     text-align: center;
 }
+
+/* Sign In */
 
 /* Donation */
 .donation__container {
@@ -478,14 +481,15 @@ header .navigation li button:hover {
     height: 40px;
     width: 500px;
 }
-
 .donation__inputChat button {
     border-radius: 20px;
     transition: all 0.2s ease-in-out;
 }
-
 .donation__inputChat button:hover {
     letter-spacing: 3px;
+}
+.donation__box .donation_event h4 {
+    
 }
 
 /* Donation */
@@ -589,12 +593,13 @@ header .navigation li button:hover {
 
 .detailDonation__box .detailDonation__content h3 {
     font-size: 30px;
-    color: white;
+    color: rgb(243, 86, 86);
 }
 
 .detailDonation__box .detailDonation__content h3 p {
     color: rgb(255, 255, 255);
     font-weight: 700;
+    font-style:italic;
 }
 
 .detailDonation__box .detailDonation__content h3 span {
